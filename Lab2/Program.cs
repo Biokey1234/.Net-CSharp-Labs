@@ -37,7 +37,7 @@ namespace Lab2
                     switch (choice)
                     {
                         case "1":
-                            words = ImportWordsFromFile("C:/Users/keymu/source/DotnetLabs/Lab2/Words.txt");
+                            words = ImportWordsFromFile("C:/Users/keymu/source/repos/cst8359Labs/Lab2/Words.txt");
                             Console.WriteLine($"Imported {words.Count} words from file.");
                             break;
                         case "2":
