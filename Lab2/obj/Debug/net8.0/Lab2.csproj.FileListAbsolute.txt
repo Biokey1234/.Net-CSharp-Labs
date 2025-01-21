@@ -1,0 +1,14 @@
+C:\Users\keymu\source\DotnetLabs\Lab2\obj\Debug\net8.0\Lab2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\keymu\source\DotnetLabs\Lab2\obj\Debug\net8.0\Lab2.AssemblyInfoInputs.cache
+C:\Users\keymu\source\DotnetLabs\Lab2\obj\Debug\net8.0\Lab2.AssemblyInfo.cs
+C:\Users\keymu\source\DotnetLabs\Lab2\obj\Debug\net8.0\Lab2.csproj.CoreCompileInputs.cache
+C:\Users\keymu\source\DotnetLabs\Lab2\bin\Debug\net8.0\Lab2.exe
+C:\Users\keymu\source\DotnetLabs\Lab2\bin\Debug\net8.0\Lab2.deps.json
+C:\Users\keymu\source\DotnetLabs\Lab2\bin\Debug\net8.0\Lab2.runtimeconfig.json
+C:\Users\keymu\source\DotnetLabs\Lab2\bin\Debug\net8.0\Lab2.dll
+C:\Users\keymu\source\DotnetLabs\Lab2\bin\Debug\net8.0\Lab2.pdb
+C:\Users\keymu\source\DotnetLabs\Lab2\obj\Debug\net8.0\Lab2.dll
+C:\Users\keymu\source\DotnetLabs\Lab2\obj\Debug\net8.0\refint\Lab2.dll
+C:\Users\keymu\source\DotnetLabs\Lab2\obj\Debug\net8.0\Lab2.pdb
+C:\Users\keymu\source\DotnetLabs\Lab2\obj\Debug\net8.0\Lab2.genruntimeconfig.cache
+C:\Users\keymu\source\DotnetLabs\Lab2\obj\Debug\net8.0\ref\Lab2.dll
