@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Sing";
+    int monkeys = (int)ViewData["MonkeyCount"];
+}
+
+<div>
+    @for (int i = monkeys; i >= 0; i--)
+    {
+        string pronoun = (i % 2 == 1) ? "he" : "she";
+        string parent = (i % 2 == 1) ? "papa" : "mama";
+
+        @if (i > 0)
+        {
+            <p>
+                @i monkey@(i != 1 ? "s" : "") jumping on the bed,<br />
+                @if (i == 1)
+                {
+                    @:The last one falls and bumps @(pronoun)s head,<br />
+                }
+                else
+                {
+                    @:One fell off and bumped @(pronoun)s head,<br />
+                }
+                @parent called the doctor and the doctor said,<br />
+                "No more monkeys jumping on the bed!"
+            </p>
+            <br />
+        }
+        else
+        {
+            <p>
+                No more monkeys jumping on the bed,<br />
+                None fell off and bumped their head,<br />
+                Mama called the doctor and the doctor said,<br />
+                "Put those monkeys straight to bed!"
+            </p>
+        }
+    }
+
+    <form asp-controller="Home" asp-action="SongForm" method="get">
+        <input type="submit" value="Play Again" />
+    </form>
+</div>

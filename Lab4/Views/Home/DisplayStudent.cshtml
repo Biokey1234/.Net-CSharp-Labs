@@ -1,0 +1,28 @@
+﻿@model Lab4.Models.Student
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Display Student";
+}
+
+<table>
+    <tr>
+        <td>First Name:</td>
+        <td>@Model.FirstName</td>
+    </tr>
+    <tr>
+        <td>Last Name:</td>
+        <td>@Model.LastName</td>
+    </tr>
+    <tr>
+        <td>Student ID:</td>
+        <td>@Model.StudentId</td>
+    </tr>
+    <tr>
+        <td>Email Address:</td>
+        <td>@Model.EmailAddress</td>
+    </tr>
+    <tr>
+        <td>Description:</td>
+        <td>@Model.Description</td>
+    </tr>
+</table>

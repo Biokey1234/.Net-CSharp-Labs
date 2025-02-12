@@ -1,0 +1,119 @@
+﻿* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+header {
+    background-color: aliceblue;
+    border-bottom: solid 1px #ddd;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    header h1 {
+        font-size: 2rem;
+        color: #2c3e50;
+        margin: 0;
+    }
+
+    header h3 {
+        color: #666;
+        margin: 0.5rem 0;
+    }
+
+/* Navigation Styles */
+nav {
+    margin-top: 1rem;
+}
+
+    nav a {
+        color: #2c3e50;
+        text-decoration: none;
+        margin-right: 1.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+
+        nav a:hover {
+            background-color: #e3f2fd;
+            color: #1a237e;
+        }
+
+/* Content Styles */
+.content {
+    flex: 1;
+    padding: 2rem;
+    margin-bottom: 160px; /* Adjusted space for footer */
+    overflow-y: auto;
+}
+
+/* Form Styles */
+table {
+    width: 100%;
+    max-width: 600px;
+    margin: 1rem 0;
+}
+
+td {
+    padding: 0.75rem;
+}
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input[type="submit"] {
+    background-color: #357abd;
+    color: white;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Segoe UI';
+    font-size: 1rem;
+    margin-top: 20px;
+    display: block;
+}
+
+    input[type="submit"]:hover {
+        background-color: #e3f2fd;
+        color: #357abd;
+    }
+
+/* Footer Styles */
+footer {
+    background-color: aliceblue;
+    border-top: solid 1px #ddd;
+    border-radius: 10px 10px 0 0;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    height: 150px; /* Fixed height */
+    overflow-y: auto; /* Allow scrolling within footer if content exceeds height */
+}
+
+    
+
+/* Make sure the button container is visible */
+.button-container {
+    margin-top: 20px;
+    padding: 10px;
+}

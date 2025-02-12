@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Lab4</title>
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1>Welcome to Lab4!</h1>
+        <h3>Author: Keynes Murika</h3>
+        <nav>
+            @Html.ActionLink("Home", "Index", "Home")
+            @Html.ActionLink("Show the song!", "SongForm", "Home")
+            @Html.ActionLink("Students", "CreateStudent", "Home")
+        </nav>
+    </header>
+
+    <main class="content">
+        <h2>@ViewData["Title"]</h2>
+        @RenderBody()
+    </main>
+
+    <footer>
+        <h4>Explanation of Layout and CSS Setup</h4>
+        <details>
+            <summary><strong>What does the layout do?</strong></summary>
+            <p>
+                The layout defines the common structure of the application, such as the header, footer, and navigation links. It ensures that all views in the application have a consistent appearance and allows for easy updates to shared parts of the page.
+            </p>
+        </details>
+        <details>
+            <summary><strong>Why are files in these directories?</strong></summary>
+            <p>
+                <strong>CSS Directory:</strong> The CSS file is placed in the <code>wwwroot/css</code> directory because it's where static files like images, JavaScript, and stylesheets are typically stored. This ensures that these resources are publicly accessible for styling purposes.
+            </p>
+            <p>
+                <strong>Layout Directory:</strong> The layout is placed in the <code>Views/Shared</code> directory because it is a shared view component used across multiple pages in the application. This directory is designated for views that are used by multiple controllers or views.
+            </p>
+        </details>
+        <details>
+            <summary><strong>ViewStart</strong></summary>
+            <p>
+                The <code>_ViewStart.cshtml</code> file is used to define the default layout for all views in the application. By specifying the layout here, we don't need to manually set the layout for each view, making it more efficient.
+            </p>
+        </details>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

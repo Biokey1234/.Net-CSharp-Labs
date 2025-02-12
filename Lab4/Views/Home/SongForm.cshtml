@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Song Form";
+}
+
+<h3>Enter Number of Monkeys</h3>
+<form asp-controller="Home" asp-action="Sing" method="post">
+    <table>
+        <tr>
+            <td>Number of Monkeys (20-30)</td>
+            <td><input type="number" name="monkeys" min="20" max="30" required /></td>
+        </tr>
+    </table>
+    <input type="submit" value="Generate Song" />
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div style="color: red;">
+            @ViewBag.ErrorMessage
+
+        </div>
+    }
+</form>
