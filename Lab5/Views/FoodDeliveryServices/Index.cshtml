@@ -1,0 +1,88 @@
+﻿@model Lab5.Models.ViewModels.DealsViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Food Delivery Services and Subscribe Customers</h1>
+
+<p>
+    <a asp-action="Create">Create New Food delivery service</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodDeliveryServices.FirstOrDefault().Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodDeliveryServices.FirstOrDefault().Fee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var service in Model.FoodDeliveryServices)
+        {
+            string selectedRow = "";
+            string serviceIDSelected = ViewData["ServiceID"] != null ? (string)ViewData["ServiceID"] : null;
+            if (service.Id == serviceIDSelected)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => service.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => service.Fee)
+                </td>
+                <td>
+                    <a asp-action="Index" asp-route-id="@service.Id">Select</a> |
+                    <a asp-action="Edit" asp-route-id="@service.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@service.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@service.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (Model.Subscriptions != null)
+{
+
+    string serviceIDSelected = ViewData["ServiceID"] != null ? (string)ViewData["ServiceID"] : null;
+    <h3> Subscribed Customers </h3>
+
+    <table class="table">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        @{
+            // Find customers subscribed to the current store
+            var subscribedCustomers = Model.Subscriptions
+            .Where(s => s.ServiceId == serviceIDSelected.ToString())
+            .Select(s => s.Customer);
+
+            if (subscribedCustomers.Any())
+            {
+                foreach (var customer in subscribedCustomers)
+                {
+                    <tr>
+                        <td>@customer.FirstName</td>
+                        <td>@customer.LastName</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>No customers subscribed</td>
+                </tr>
+
+            }
+        }
+
+    </table>
+
+}
