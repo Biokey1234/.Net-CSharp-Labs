@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/westus3/connectors/ConnectionStringsDefaultDBConnection_F824E019BA",
+      "secretStore": null,
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/muri0028server/databases/Lab6DB",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:DefaultDBConnection"
+    },
+    "storage1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/westus3/connectors/ConnectionStringsAzureBlobStorage_56B483A502",
+      "secretStore": null,
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/muri0028lab6str",
+      "type": "storage.azure",
+      "connectionId": "ConnectionStrings:AzureBlobStorage",
+      "dynamicId": null
+    }
+  }
+}
