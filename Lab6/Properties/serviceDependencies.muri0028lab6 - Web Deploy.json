@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/muri0028lab6/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsDefaultDBConnection_F824E019BA",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/muri0028server/databases/Lab6DB",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:DefaultDBConnection",
+      "dynamicId": null
+    },
+    "storage1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/muri0028lab6/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsAzureBlobStorage_56B483A502, /subscriptions/1af69a53-026f-4c94-bfc6-2cb88e7919c9/resourceGroups/muri0028Labs/providers/Microsoft.Web/sites/muri0028lab6/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsAzureBlobStorage_9D5F28373E",
+      "secretStore": null,
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/muri0028lab6str",
+      "type": "storage.azure",
+      "connectionId": "ConnectionStrings:AzureBlobStorage",
+      "dynamicId": null
+    }
+  }
+}

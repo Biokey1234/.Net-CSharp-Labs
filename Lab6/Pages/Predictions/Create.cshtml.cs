@@ -38,30 +38,33 @@ namespace Lab6.Pages.Predictions
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync(IFormFile uploadedFile)
-
         {
-            if (!ModelState.IsValid || uploadedFile == null || uploadedFile.Length == 0)
-            {
-                ModelState.AddModelError("UploadedFile", "File is required.");
-                return Page();  // Return form with validation error
-            }
             string containerName = Prediction.Question == Question.Earth ? earthContainerName : computerContainerName;
             var containerClient = await GetOrCreateContainerClientAsync(containerName);
 
             if (uploadedFile != null && uploadedFile.Length > 0)
             {
-                string randomFileName = Path.GetRandomFileName();
-                var blobClient = containerClient.GetBlobClient(randomFileName);
+                string fileExtension = Path.GetExtension(uploadedFile.FileName);
+                string uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
+
+                var blobClient = containerClient.GetBlobClient(uniqueFileName);
 
                 try
                 {
                     await UploadFileToBlobAsync(uploadedFile, blobClient);
-                    Prediction.Url = blobClient.Uri.ToString();
+                    Prediction.FileName = uniqueFileName;
+                    Prediction.Url = blobClient.Uri.ToString(); // ✅ Ensure URL is always set
                 }
-                catch (RequestFailedException)
+                catch (RequestFailedException ex)
                 {
-                    RedirectToPage("Error"); 
+                    Console.WriteLine($"Blob Upload Failed: {ex.Message}");
+                    return RedirectToPage("/Error");  // ✅ Redirect to error page
                 }
+            }
+            else
+            {
+                ModelState.AddModelError("UploadedFile", "File is required.");
+                return Page();  // ✅ Stay on the page if file is missing
             }
 
             _context.Predictions.Add(Prediction);
