@@ -24,22 +24,30 @@ namespace Lab7.Controllers
         }
 
         // GET: api/Students
-        // <returns>A collection of Students</returns>
+        /// Get collection of Students.
+        /// <returns>A collection of Students</returns>
+        /// <response code="200">Returns a collection of Students</response>
+        /// <response code="500">Internal error</response> 
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]                            // <response code="200">Returns a collection of Students</response>
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]           // <response code="500">Internal error</response> 
+        [ProducesResponseType(StatusCodes.Status200OK)]                            
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]            
         public async Task<ActionResult<IEnumerable<Student>>> GetStudents()
         {
             return await _context.Students.ToListAsync();
         }
 
         // GET: api/Students/5
-        // <returns>A Student</returns>
-        [HttpGet("{id}")]                                                   //<param id="id"></param>
-        [ProducesResponseType(StatusCodes.Status200OK)]                    // <response code="201">Returns a collection of Student</response>
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]            // <response code="400">If the id is malformed</response> 
-        [ProducesResponseType(StatusCodes.Status404NotFound)]              // <response code = "404" > If the Student is null</response>
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]   // <response code="500">Internal error</response>
+        /// <returns>A Student</returns>
+        /// <param id="id"></param>
+        /// <response code="200">Returns a Student</response>
+        /// <response code="400">If the id is malformed</response> 
+        /// <response code = "404" > If the Student is null</response>
+        /// <response code="500">Internal error</response>
+        [HttpGet("{id}")]                                                   
+        [ProducesResponseType(StatusCodes.Status200OK)]                    
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]          
+        [ProducesResponseType(StatusCodes.Status404NotFound)]              
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]   
         public async Task<ActionResult<Student>> GetStudent(Guid id)
         {
             var student = await _context.Students.FindAsync(id);
@@ -54,12 +62,17 @@ namespace Lab7.Controllers
 
         // PUT: api/Students/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        // <param id="id"></param>
-     
-        [HttpPut("{id}")]                                                 // <param id="id"></param>
-        [ProducesResponseType(StatusCodes.Status200OK)]                   // <response code="200">Returns the updated Student</response>  
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]           // <response code="400">If the Student or id is malformed</response>   
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]  // <response code="500">Internal error</response>
+        /// <param id="id"></param>
+        /// <returns>An updated Student</returns>
+        /// <response code="200">Returns the updated Student</response>
+        /// <response code="201">Returns the newly created Student</response>
+        /// <response code="400">If the Student or id is malformed</response>      
+        /// <response code="500">Internal error</response>
+
+        [HttpPut("{id}")]                                                 
+        [ProducesResponseType(StatusCodes.Status200OK)]                    
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]             
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]  
         public async Task<IActionResult> PutStudent(Guid id, Student student)
         {
             Student? isAstudent = null;
@@ -90,11 +103,14 @@ namespace Lab7.Controllers
 
         // POST: api/Students
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        //  returns A newly created Students</returns>      
+        /// <returns>A newly created Students</returns>
+        /// <response code="201">Returns the newly created Students</response>
+        /// <response code="400">If the Students is malformed</response>      
+        /// <response code="500">Internal error</response>    
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]                            // <response code="201">Returns the newly created Students</response>
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]                         // <response code="400">If the Students is malformed</response>
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]                // <response code="500">Internal error</response>
+        [ProducesResponseType(StatusCodes.Status201Created)]                            
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]                         
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]               
         public async Task<ActionResult<Student>> PostStudent(Student student)
         {
             _context.Students.Add(student);
@@ -104,11 +120,15 @@ namespace Lab7.Controllers
         }
 
         // DELETE: api/Students/5
-        
-        [HttpDelete("{id}")]                                                      // param id="id"></param>
-        [ProducesResponseType(StatusCodes.Status202Accepted)]                     // response code="202">Student is deleted</response>
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]                   // code="400">If the id is malformed</response>  
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]          // response code="500">Internal error</response
+        /// <param id="id"></param>
+        /// <response code="202">Student is deleted</response>
+        /// <response code="400">If the id is malformed</response>      
+        /// <response code="500">Internal error</response>
+
+        [HttpDelete("{id}")]                                                      
+        [ProducesResponseType(StatusCodes.Status202Accepted)]                    
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]                    
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]         
         public async Task<IActionResult> DeleteStudent(Guid id)
         {
             var student = await _context.Students.FindAsync(id);
