@@ -75,7 +75,7 @@ namespace Lab7.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]  
         public async Task<IActionResult> PutStudent(Guid id, Student student)
         {
-            Student? isAstudent = null;
+            Student isAstudent = null;
 
             try
 
