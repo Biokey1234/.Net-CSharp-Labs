@@ -10,7 +10,7 @@ namespace Lab7.Data
         }
 
         public DbSet<Student> Students { get; set; }
-
+           
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
