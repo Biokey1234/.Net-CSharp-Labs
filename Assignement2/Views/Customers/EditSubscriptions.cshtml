@@ -1,0 +1,46 @@
+﻿@model Assignment2.Models.ViewModels.CustomerSubscriptionViewModel
+
+@{
+    ViewData["Title"] = "Edit Subscriptions";
+}
+
+<h2>Edit Subscriptions for @Model.Customer.FullName</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Service</th>
+            <th>Subscription Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var service in Model.Subscriptions)
+        {
+            <tr>
+                <td>@service.Title</td>
+                <td>
+                    @if (service.IsSubscribed)
+                    {
+                        <form asp-action="RemoveSubscription" method="post">
+                            <input type="hidden" name="customerId" value="@Model.Customer.Id" />
+                            <input type="hidden" name="serviceId" value="@service.FoodDeliveryServiceId" />
+                            <button type="submit" class="btn btn-danger btn-sm">Unsubscribe</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-action="AddSubscription" method="post">
+                            <input type="hidden" name="customerId" value="@Model.Customer.Id" />
+                            <input type="hidden" name="serviceId" value="@service.FoodDeliveryServiceId" />
+                            <button type="submit" class="btn btn-success btn-sm">Subscribe</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Index">Back to Customers</a>
+</p>

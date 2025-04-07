@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "restored": true,
+      "restoreTime": "2025-04-07T20:06:03.0990154Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2025-04-07T19:56:45.8571268Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "1af69a53-026f-4c94-bfc6-2cb88e7919c9"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "muri0028Labs"
+    }
+  }
+}

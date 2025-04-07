@@ -1,0 +1,30 @@
+﻿@model Assignment2.Models.ViewModels.DealsPostsViewModel
+
+@{
+    ViewData["Title"] = "Deals";
+}
+
+<h2>Deals for @Model.FoodDeliveryService.Title</h2>
+
+<p>
+    <a asp-action="Create" asp-route-id="@Model.FoodDeliveryService.Id">Upload New Deal</a>
+</p>
+
+@if (!Model.Deals.Any())
+{
+    <p>No deals uploaded yet.</p>
+}
+else
+{
+    <div class="deals-grid">
+        @foreach (var deal in Model.Deals)
+        {
+            <div>
+                <img src="~/@deal.ImagePath" alt="Deal Image" width="200" />
+                <p>
+                    <a asp-action="Delete" asp-route-id="@deal.Id">Delete</a>
+                </p>
+            </div>
+        }
+    </div>
+}
