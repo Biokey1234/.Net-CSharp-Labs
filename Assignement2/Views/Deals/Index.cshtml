@@ -7,24 +7,33 @@
 <h2>Deals for @Model.FoodDeliveryService.Title</h2>
 
 <p>
-    <a asp-action="Create" asp-route-id="@Model.FoodDeliveryService.Id">Upload New Deal</a>
+    <a asp-action="Create" asp-route-id="@Model.FoodDeliveryService.Id" class="btn btn-primary">Upload New Deal</a>
 </p>
 
-@if (!Model.Deals.Any())
-{
-    <p>No deals uploaded yet.</p>
-}
-else
-{
-    <div class="deals-grid">
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Image</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
         @foreach (var deal in Model.Deals)
         {
-            <div>
-                <img src="~/@deal.ImagePath" alt="Deal Image" width="200" />
-                <p>
-                    <a asp-action="Delete" asp-route-id="@deal.Id">Delete</a>
-                </p>
-            </div>
+            <tr>
+                <td>@System.IO.Path.GetFileName(deal.ImagePath)</td>
+                <td>
+                    <img src="~/@deal.ImagePath" alt="Deal Image" style="max-width: 200px;" />
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@deal.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
         }
-    </div>
-}
+    </tbody>
+</table>
+
+<p>
+    <a asp-controller="FoodDeliveryServices" asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+</p>
